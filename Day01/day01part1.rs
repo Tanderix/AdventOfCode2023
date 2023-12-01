@@ -7,7 +7,6 @@ fn main() {
     if let Ok(lines) = read_lines("./day01.txt"){
         for line in lines{
             if let Ok(ip) = line{
-                println!("{}", ip);
                 let mut index = 0;
                 let mut tot = String::new();
 
