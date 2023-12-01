@@ -19,10 +19,6 @@ public class day01part2{
             "nine", 9 
         );
 
-        /*for(Map.Entry<String, Integer> entry : nums.entrySet()){
-                System.out.println(entry.getKey() + "---" + entry.getValue());
-        }*/
-
         try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
             String line;
             int sum = 0;
@@ -31,30 +27,20 @@ public class day01part2{
             int numindex = 0;
             String tempfirst = "";
             String templast = "";
-            int finalfirst;
-            int finallast;
 
             while ((line = br.readLine()) != null) {
-                System.out.println(line);
 
                 for(Map.Entry<String, Integer> entry : nums.entrySet()){
                     if(line.indexOf(entry.getKey()) != -1 && line.indexOf(entry.getKey()) < firstindex){
                         firstindex = line.indexOf(entry.getKey());
                         tempfirst = entry.getValue().toString();
-                    }                    
-                }
-
-                for(Map.Entry<String, Integer> entry : nums.entrySet()){
+                    }
+                    
                     if(line.lastIndexOf(entry.getKey()) != -1 && line.lastIndexOf(entry.getKey()) > lastindex){
                         lastindex = line.lastIndexOf(entry.getKey());
                         templast = entry.getValue().toString();
-                    }                    
+                    } 
                 }
-
-                
-                System.out.println("\tIndex first word:" + firstindex + " : " + tempfirst);
-                System.out.println("\tIndex last word:" + lastindex + " : " + templast);
-                
 
                 numindex = 0;
                 while(numindex < line.length()-1 && !Character.isDigit(line.charAt(numindex))){
@@ -74,18 +60,13 @@ public class day01part2{
                     templast = "" + line.charAt(numindex);
                 }
 
-                finalfirst = firstindex;
-                finallast = lastindex;
-
                 firstindex = Integer.MAX_VALUE;
                 lastindex = Integer.MIN_VALUE;
-                System.out.println("\tFinal first:" + firstindex + " : " + tempfirst);
-                System.out.println("\tFinal last:" + lastindex + " : " + templast);
 
                 sum += Integer.parseInt(tempfirst+templast);
             }
 
-            System.out.println("Partial sum: " + sum);
+            System.out.println("Part 2: " + sum);
 
         } catch (IOException e) {
             e.printStackTrace();
