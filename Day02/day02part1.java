@@ -34,7 +34,6 @@ public class day02part1 {
                             }
                         }
                     }
-                    System.out.println("Game " + id + " is " + possible);
                     if(possible){
                         IDsum+=id;
                     }else{
