@@ -17,18 +17,12 @@ public class day03part2 {
                 int index = 0;
                 int sum = 0;
                 String num = "";
-                boolean found = false;
                 boolean gear = false;
-                int gearRatio = 0;
                 int[] result;
-                int curI = -1;
-                int curJ = -1;
-                boolean toAdd = false;
-                boolean first = false;
-                boolean second = false;
                 String mykey = "";
                 HashMap<String, MyValue> gears = new HashMap<>();
 
+                //Parse lines
                 while ((line = br.readLine()) != null) {
                     schema[index] = line;
                     index++; 
@@ -37,10 +31,6 @@ public class day03part2 {
                 //Search number
                 for(int i = 0; i < schema.length; i++){
                     String row = schema[i];
-                    if(found){
-                        sum += Integer.parseInt(num);
-                        found = false;
-                    }
                     if(gear){
                         int curNum = gears.get(mykey).value;
                         if(curNum == 0){

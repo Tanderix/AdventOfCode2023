@@ -22,23 +22,15 @@ public class day03part1 {
                     index++; 
                 }
 
-                for (int i = 0; i < schema.length; i++) {
-                    System.out.println(schema[i]);
-                }
-
                 //Search number
                 for(int i = 0; i < schema.length; i++){
                     String row = schema[i];
                     if(found){
-                        System.out.println(num);
                         sum += Integer.parseInt(num);
                         found = false;
                     }
                     num = "";
                     for (int j = 0; j < row.length(); j++) {
-                        if(i == 113 && j == 130){
-                            System.out.println("error");
-                        }
                         if(Character.isDigit(row.charAt(j))){
                             num += row.charAt(j);
                             if(checkAdjacent(schema, i, j)){
@@ -46,7 +38,6 @@ public class day03part1 {
                             }
                         }else{
                             if(found){
-                                System.out.println(num);
                                 sum += Integer.parseInt(num);
                                 found = false;
                             }
