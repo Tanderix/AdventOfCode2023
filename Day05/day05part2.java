@@ -18,7 +18,6 @@ public class day05part2 {
         String filePath = "./Day05/day05.txt";
         String[] seeds = {};
 
-        
         try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
                 String line;
                 long min = Long.MAX_VALUE;
@@ -46,25 +45,33 @@ public class day05part2 {
                 mapList.add(temperature_to_humidity);
                 mapList.add(humidity_to_location);
 
-                for (String seed : seeds) {
-                    long seedNum = Long.parseLong(seed);
-                    long curLoc = seedNum;
-                    for (HashMap<Long, MyKey> curMap : mapList) {
-                        for (Map.Entry<Long, MyKey> entry : curMap.entrySet()) {
-                            long source = entry.getKey();
-                            long destination = entry.getValue().dest;
-                            long step = entry.getValue().step;
-
-                            if(curLoc >= source && curLoc <= source + step){
-                                long toAdd = curLoc - source;
-                                curLoc = destination + toAdd;
-                                break;
-                            }
+                for(int i = 0; i<seeds.length; i+=2){
+                    long seedNum = Long.parseLong(seeds[i]);
+                    long times = Long.parseLong(seeds[i+1]);
+                    for(long j = seedNum; j<=seedNum+times;j++){
+                        long curLoc = j;
+                        if(j == 82){
+                            System.out.println("ciao");
                         }
-                        //System.out.println("Partial step: " + curLoc);
+                        //System.out.println("SeedNum: "+ j);
+                        for (HashMap<Long, MyKey> curMap : mapList) {
+                            for (Map.Entry<Long, MyKey> entry : curMap.entrySet()) {
+                                long source = entry.getKey();
+                                long destination = entry.getValue().dest;
+                                long step = entry.getValue().step;
+
+                                if(curLoc >= source && curLoc < source + step){
+                                    long toAdd = curLoc - source;
+                                    curLoc = destination + toAdd;
+                                    break;
+                                }
+                            }
+                            //System.out.println("Partial step: " + curLoc);
+                        }
+                        //System.out.println("Min:" + min);
+                        if(curLoc < min){ min = curLoc;}
                     }
-                    if(curLoc < min){ min = curLoc;}
-                    //System.out.println("Location: " + curLoc);
+
                 }
 
                 /*printMap("seed_to_soil", seed_to_soil);
@@ -75,7 +82,7 @@ public class day05part2 {
                 printMap("temperature-to-humidity", temperature_to_humidity);
                 printMap("humidity-to-location", humidity_to_location);*/
 
-                System.out.println("Part 1: " + min);
+                System.out.println("Part 2: " + min);
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -117,3 +124,4 @@ class MyKey{
         this.step = s;
     }
 }
+
