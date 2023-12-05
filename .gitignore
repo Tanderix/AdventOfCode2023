@@ -12,3 +12,4 @@ AdventOfCode2023.iml
 .idea/workspace.xml
 Day04/day04.txt
 *.txt
+.vscode/settings.json

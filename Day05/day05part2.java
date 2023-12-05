@@ -53,7 +53,6 @@ public class day05part2 {
                         if(j == 82){
                             System.out.println("ciao");
                         }
-                        //System.out.println("SeedNum: "+ j);
                         for (HashMap<Long, MyKey> curMap : mapList) {
                             for (Map.Entry<Long, MyKey> entry : curMap.entrySet()) {
                                 long source = entry.getKey();
@@ -66,21 +65,11 @@ public class day05part2 {
                                     break;
                                 }
                             }
-                            //System.out.println("Partial step: " + curLoc);
                         }
-                        //System.out.println("Min:" + min);
                         if(curLoc < min){ min = curLoc;}
                     }
 
                 }
-
-                /*printMap("seed_to_soil", seed_to_soil);
-                printMap("soil-to-fertilizer", soil_to_fertilizer);
-                printMap("fertilizer-to-water", fertilizer_to_water);
-                printMap("water-to-light", water_to_light);
-                printMap("light-to-temperature", light_to_temperature);
-                printMap("temperature-to-humidity", temperature_to_humidity);
-                printMap("humidity-to-location", humidity_to_location);*/
 
                 System.out.println("Part 2: " + min);
 
@@ -105,13 +94,6 @@ public class day05part2 {
             e.printStackTrace();
         }
 
-    }
-
-    public static void printMap(String name, HashMap<Long, MyKey> m){
-        System.out.println("\n" + name + " - ");
-        for (Map.Entry<Long, MyKey> entry : m.entrySet()) {
-            System.out.println("Src: " + entry.getKey() + ", Dst: " + entry.getValue().dest + ", Stp: " + entry.getValue().step);
-        }
     }
 }
 

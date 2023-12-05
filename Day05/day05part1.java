@@ -61,20 +61,9 @@ public class day05part1 {
                                 break;
                             }
                         }
-                        //System.out.println("Partial step: " + curLoc);
                     }
                     if(curLoc < min){ min = curLoc;}
-                    //System.out.println("Location: " + curLoc);
                 }
-
-                /*printMap("seed_to_soil", seed_to_soil);
-                printMap("soil-to-fertilizer", soil_to_fertilizer);
-                printMap("fertilizer-to-water", fertilizer_to_water);
-                printMap("water-to-light", water_to_light);
-                printMap("light-to-temperature", light_to_temperature);
-                printMap("temperature-to-humidity", temperature_to_humidity);
-                printMap("humidity-to-location", humidity_to_location);*/
-
                 System.out.println("Part 1: " + min);
 
         } catch (IOException e) {
@@ -98,13 +87,6 @@ public class day05part1 {
             e.printStackTrace();
         }
 
-    }
-
-    public static void printMap(String name, HashMap<Long, MyKey> m){
-        System.out.println("\n" + name + " - ");
-        for (Map.Entry<Long, MyKey> entry : m.entrySet()) {
-            System.out.println("Src: " + entry.getKey() + ", Dst: " + entry.getValue().dest + ", Stp: " + entry.getValue().step);
-        }
     }
 }
 
