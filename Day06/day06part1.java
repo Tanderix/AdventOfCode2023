@@ -3,8 +3,6 @@ package Day06;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
 
 public class day06part1 {
     public static void main(String[] args) {
