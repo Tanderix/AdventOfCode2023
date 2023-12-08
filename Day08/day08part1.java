@@ -3,9 +3,6 @@ package Day08;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
 import java.util.HashMap;
 
 public class day08part1 {
@@ -22,7 +19,6 @@ public static void main(String[] args) {
 
             //Build map
             while ((line = br.readLine()) != null) {
-                //System.out.println(line);
                 String node = line.split(" = ")[0].trim();
                 String lr = line.split(" = ")[1].replaceAll("\\(|\\)", "").trim();
                 if(first){
@@ -35,7 +31,6 @@ public static void main(String[] args) {
             int jumps = 0;
             int index = 0;
             while(!finished){
-                System.out.println(curNode);
                 if(curNode.equals("ZZZ")){
                     finished = true;
                     break;
