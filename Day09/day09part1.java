@@ -18,7 +18,6 @@ public class day09part1 {
                 ArrayList<Integer> newList = new ArrayList<>();
                 Stack<Integer> penultimates = new Stack<>();
 
-                System.out.println("History: " + line);
                 String[] lineSplit = line.split(" ");
                 for(String s : lineSplit){
                     oldList.add(Integer.parseInt(s));
@@ -38,20 +37,12 @@ public class day09part1 {
                     for(int ni : newList){
                         oldList.add(ni);
                     }
-                    for (Integer n : oldList) {
-                        System.out.print(n + " ");
-                    }
-                    System.out.println("");
-
-                    System.out.println("Stack: " + penultimates);
 
                     firstItem = oldList.get(0);
                     result = new HashSet<Integer>(oldList).size() == 1;
                     result = result && (firstItem == 0);
                     newList.clear();
                 }
-
-                System.out.println(" --------------------- ");
                 for (Integer pen : penultimates) {
                     sum += pen;
                 }
